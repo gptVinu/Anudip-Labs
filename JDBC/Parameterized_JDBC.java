@@ -8,7 +8,7 @@ public class Parameterized_JDBC {
 		//credentials
 		String url = "jdbc:mysql://localhost:3306/jdbc_data";
 		String user = "root";
-		String password = "Vinu@8898";
+		String password = "myPass";
 		
 		//Query
 		String query = "Select * from students;";
@@ -39,3 +39,4 @@ public class Parameterized_JDBC {
 		}
 	}
 }
+
