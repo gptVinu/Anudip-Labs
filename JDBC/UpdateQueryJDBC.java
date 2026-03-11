@@ -12,7 +12,7 @@ public class UpdateQueryJDBC {
 		// credentials
 		String url = "jdbc:mysql://localhost:3306/jdbc_data";
 		String user = "root";
-		String password = "Vinu@8898";
+		String password = "myPass";
 		
 		String sql = "Update students set email= ? where id = ?";
 		
@@ -47,3 +47,4 @@ public class UpdateQueryJDBC {
 	}
 
 }
+
