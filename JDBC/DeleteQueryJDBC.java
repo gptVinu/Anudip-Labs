@@ -12,7 +12,7 @@ public class DeleteQueryJDBC {
 		// credentials
 		String url = "jdbc:mysql://localhost:3306/jdbc_data";
 		String user = "root";
-		String password = "Vinu@8898";
+		String password = "myPass";
 		
 		String sql = "Delete from students where id = ?";
 		
@@ -46,3 +46,4 @@ public class DeleteQueryJDBC {
 	}
 
 }
+
