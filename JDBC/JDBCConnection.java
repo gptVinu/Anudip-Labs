@@ -14,7 +14,7 @@ public class JDBCConnection {
 		// credentials
 		String url = "jdbc:mysql://localhost:3306/jdbc_data";
 		String user = "root";
-		String password = "Vinu@8898";
+		String password = "myPass";
 		
 		String sql = "Insert into students (name, email, age) values (?,?,?)";
 		
@@ -61,3 +61,4 @@ public class JDBCConnection {
 	}
 
 }
+
