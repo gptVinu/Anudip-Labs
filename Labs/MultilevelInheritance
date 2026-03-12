@@ -1,0 +1,36 @@
+// Superclass
+class Animal {
+    void makeSound() {
+        System.out.println("The animal makes a sound.");
+    }
+}
+
+// Subclass Dog
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+// Subclass Cat (multilevel: Cat extends Dog, Dog extends Animal)
+class Cat extends Dog {
+    @Override
+    void makeSound() {
+        System.out.println("The cat meows.");
+    }
+}
+
+// Main class with entry point
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        a.makeSound();
+
+        Dog d = new Dog();
+        d.makeSound();
+
+        Cat c = new Cat();
+        c.makeSound();
+    }
+}
