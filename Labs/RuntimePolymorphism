@@ -1,0 +1,77 @@
+// Superclass
+class HillStations {
+    void location() {
+        System.out.println("Generic Hill Station location");
+    }
+    void famousFor() {
+        System.out.println("Generic Hill Station specialty");
+    }
+}
+
+// Subclasses
+class Manali extends HillStations {
+    @Override
+    void location() {
+        System.out.println("Manali is in Himachal Pradesh");
+    }
+    @Override
+    void famousFor() {
+        System.out.println("Manali is famous for snow and adventure sports");
+    }
+}
+
+class Mussoorie extends HillStations {
+    @Override
+    void location() {
+        System.out.println("Mussoorie is in Uttarakhand");
+    }
+    @Override
+    void famousFor() {
+        System.out.println("Mussoorie is famous for scenic beauty and education institutions");
+    }
+}
+
+class Gulmarg extends HillStations {
+    @Override
+    void location() {
+        System.out.println("Gulmarg is in Jammu & Kashmir");
+    }
+    @Override
+    void famousFor() {
+        System.out.println("Gulmarg is famous for skiing and winter sports");
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        // i. Call using parent reference (runtime polymorphism)
+        HillStations hs;
+
+        hs = new Manali();
+        hs.location();
+        hs.famousFor();
+
+        hs = new Mussoorie();
+        hs.location();
+        hs.famousFor();
+
+        hs = new Gulmarg();
+        hs.location();
+        hs.famousFor();
+
+        // ii. Call directly using subclass objects
+        System.out.println("\nCalling directly:");
+        Manali manali = new Manali();
+        manali.location();
+        manali.famousFor();
+
+        Mussoorie mussoorie = new Mussoorie();
+        mussoorie.location();
+        mussoorie.famousFor();
+
+        Gulmarg gulmarg = new Gulmarg();
+        gulmarg.location();
+        gulmarg.famousFor();
+    }
+}
