@@ -1,0 +1,704 @@
+mysql> select * from products;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
++---------+--------------+-------------+---------------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> desc products;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| prod_id             | varchar(10) | NO   | PRI | NULL    |       |
+| prod_name           | varchar(30) | YES  |     | NULL    |       |
+| category            | varchar(20) | YES  |     | NULL    |       |
+| prod_original_price | float       | YES  |     | NULL    |       |
+| stock               | int         | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from products order by stock;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
++---------+--------------+-------------+---------------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from products order by prod_original_price;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
++---------+--------------+-------------+---------------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from products order by stock desc;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
++---------+--------------+-------------+---------------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from products order by prod_original_price desc;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
++---------+--------------+-------------+---------------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from products limit 4;
++---------+-------------+-------------+---------------------+-------+
+| prod_id | prod_name   | category    | prod_original_price | stock |
++---------+-------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15   | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23  | Smartphones |               849.5 |    30 |
+| PD-103  | MacBook Pro | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15 | Laptops     |                1450 |     8 |
++---------+-------------+-------------+---------------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from products limit 5;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
++---------+--------------+-------------+---------------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select count(*) from products;
++----------+
+| count(*) |
++----------+
+|       10 |
++----------+
+1 row in set (0.02 sec)
+
+mysql> select count(*) from products where prod_original_price > 1999;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> select count(*) from products where prod_original_price > 1000;
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from products;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
++---------+--------------+-------------+---------------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select sum(stock) from products;
++------------+
+| sum(stock) |
++------------+
+|        372 |
++------------+
+1 row in set (0.01 sec)
+
+mysql>
+mysql> select avg(stock) from products;
++------------+
+| avg(stock) |
++------------+
+|    37.2000 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select prod_name, max(stock) from products;
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'company.products.prod_name'; this is incompatible with sql_mode=only_full_group_by
+mysql> select max(stock) from products;
++------------+
+| max(stock) |
++------------+
+|         85 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select min(stock) from products;
++------------+
+| min(stock) |
++------------+
+|          8 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select * from products;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
++---------+--------------+-------------+---------------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from products where prod_original_price between 200 and 1000;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
++---------+--------------+-------------+---------------------+-------+
+5 rows in set (0.01 sec)
+
+mysql> select * from products where prod_original_price not between 200 and 1000;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
++---------+--------------+-------------+---------------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE PROD_NAME BETWEEN 'D' AND 'K';
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
++---------+--------------+-------------+---------------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE PROD_NAME NOT BETWEEN 'D' AND 'K';
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
++---------+--------------+-------------+---------------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
++---------+--------------+-------------+---------------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE PROD_ORIGINAL_PRICE IN (1999,249);
++---------+-------------+----------+---------------------+-------+
+| prod_id | prod_name   | category | prod_original_price | stock |
++---------+-------------+----------+---------------------+-------+
+| PD-103  | MacBook Pro | Laptops  |                1999 |    12 |
+| PD-106  | AirPods Pro | Audio    |                 249 |    85 |
++---------+-------------+----------+---------------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE PROD_ORIGINAL_PRICE IN (99,349,849.5);
++---------+------------+-------------+---------------------+-------+
+| prod_id | prod_name  | category    | prod_original_price | stock |
++---------+------------+-------------+---------------------+-------+
+| PD-102  | Galaxy S23 | Smartphones |               849.5 |    30 |
+| PD-109  | Logi Mouse | Accessories |                  99 |    65 |
++---------+------------+-------------+---------------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE PROD_ORIGINAL_PRICE IN (99,249,849.5);
++---------+-------------+-------------+---------------------+-------+
+| prod_id | prod_name   | category    | prod_original_price | stock |
++---------+-------------+-------------+---------------------+-------+
+| PD-102  | Galaxy S23  | Smartphones |               849.5 |    30 |
+| PD-106  | AirPods Pro | Audio       |                 249 |    85 |
+| PD-109  | Logi Mouse  | Accessories |                  99 |    65 |
++---------+-------------+-------------+---------------------+-------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE CATEGORY IN ('AUDIO','TABLETS');
++---------+--------------+----------+---------------------+-------+
+| prod_id | prod_name    | category | prod_original_price | stock |
++---------+--------------+----------+---------------------+-------+
+| PD-105  | Sony WH-1000 | Audio    |                 398 |    50 |
+| PD-106  | AirPods Pro  | Audio    |                 249 |    85 |
+| PD-107  | iPad Air     | Tablets  |                 599 |    22 |
+| PD-108  | Kindle Paper | Tablets  |              139.99 |    40 |
++---------+--------------+----------+---------------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE CATEGORY NOT IN ('AUDIO','TABLETS');
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
++---------+--------------+-------------+---------------------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE PROD_NAME IS NULL;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE PROD_NAME IS NOT NULL;
++---------+--------------+-------------+---------------------+-------+
+| prod_id | prod_name    | category    | prod_original_price | stock |
++---------+--------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15    | Smartphones |              999.99 |    25 |
+| PD-102  | Galaxy S23   | Smartphones |               849.5 |    30 |
+| PD-103  | MacBook Pro  | Laptops     |                1999 |    12 |
+| PD-104  | Dell XPS 15  | Laptops     |                1450 |     8 |
+| PD-105  | Sony WH-1000 | Audio       |                 398 |    50 |
+| PD-106  | AirPods Pro  | Audio       |                 249 |    85 |
+| PD-107  | iPad Air     | Tablets     |                 599 |    22 |
+| PD-108  | Kindle Paper | Tablets     |              139.99 |    40 |
+| PD-109  | Logi Mouse   | Accessories |                  99 |    65 |
+| PD-110  | Gaming Keybd | Accessories |                 120 |    35 |
++---------+--------------+-------------+---------------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE PROD_NAME = 'IPHONE 15' AND PROD_ORIGINAL_PRICE = 99;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCTS WHERE PROD_NAME = 'IPHONE 15' OR PROD_ORIGINAL_PRICE = 99;
++---------+------------+-------------+---------------------+-------+
+| prod_id | prod_name  | category    | prod_original_price | stock |
++---------+------------+-------------+---------------------+-------+
+| PD-101  | iPhone 15  | Smartphones |              999.99 |    25 |
+| PD-109  | Logi Mouse | Accessories |                  99 |    65 |
++---------+------------+-------------+---------------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> CREATE TABLE CUSTOMER(
+    -> ID INT(5) PRIMARY KEY NOT NULL,
+    -> NAME VARCHAR(30) NOT NULL,
+    -> ADDRESS VARCHAR(30) NOT NULL,
+    -> CITY VARCHAR(30) NOT NULL,
+    -> COUNTRY VARCHAR(30) NOT NULL
+    -> );
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+mysql> DESC CUTOMER;
+ERROR 1146 (42S02): Table 'company.cutomer' doesn't exist
+mysql> DESC CUSTOMER;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| ID      | int         | NO   | PRI | NULL    |       |
+| NAME    | varchar(30) | NO   |     | NULL    |       |
+| ADDRESS | varchar(30) | NO   |     | NULL    |       |
+| CITY    | varchar(30) | NO   |     | NULL    |       |
+| COUNTRY | varchar(30) | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES(1,'JOHN','LINCON ROAD','MUMBAI''INDIA');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> INSERT INTO CUSTOMER VALUES(1,'JOHN','LINCON ROAD','MUMBAI','INDIA');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES(2,'SAHIL','ANOTHER ROAD','VAPI','INDIA');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES(3,'ADITI','LN ROAD','VAPI','INDIA');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES(4,'PRANJAL','SV ROAD','MUMBAI','INDIA');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES(5,'ABHIJEET','SV ROAD','PUNE','INDIA');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM CUSTOMER;
++----+----------+--------------+--------+---------+
+| ID | NAME     | ADDRESS      | CITY   | COUNTRY |
++----+----------+--------------+--------+---------+
+|  1 | JOHN     | LINCON ROAD  | MUMBAI | INDIA   |
+|  2 | SAHIL    | ANOTHER ROAD | VAPI   | INDIA   |
+|  3 | ADITI    | LN ROAD      | VAPI   | INDIA   |
+|  4 | PRANJAL  | SV ROAD      | MUMBAI | INDIA   |
+|  5 | ABHIJEET | SV ROAD      | PUNE   | INDIA   |
++----+----------+--------------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql> SLEECT COUNT(ID), COUNTRY FROM CUSTOMER GROUP BY COUNTRY;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SLEECT COUNT(ID), COUNTRY FROM CUSTOMER GROUP BY COUNTRY' at line 1
+mysql> SELECT COUNT(ID), COUNTRY FROM CUSTOMER GROUP BY COUNTRY;
++-----------+---------+
+| COUNT(ID) | COUNTRY |
++-----------+---------+
+|         5 | INDIA   |
++-----------+---------+
+1 row in set (0.01 sec)
+
+mysql> SELECT COUNT(ID), CITY FROM CUSTOMER GROUP BY CITY;
++-----------+--------+
+| COUNT(ID) | CITY   |
++-----------+--------+
+|         2 | MUMBAI |
+|         2 | VAPI   |
+|         1 | PUNE   |
++-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(ID), CITY FROM CUSTOMER GROUP BY CITY ORDER BY DESC;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC' at line 1
+mysql> SELECT COUNT(ID), CITY FROM CUSTOMER GROUP BY CITY ORDER BY COUNT(ID) ;
++-----------+--------+
+| COUNT(ID) | CITY   |
++-----------+--------+
+|         1 | PUNE   |
+|         2 | MUMBAI |
+|         2 | VAPI   |
++-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(ID), CITY FROM CUSTOMER GROUP BY CITY ORDER BY COUNT(ID) DESC ;
++-----------+--------+
+| COUNT(ID) | CITY   |
++-----------+--------+
+|         2 | MUMBAI |
+|         2 | VAPI   |
+|         1 | PUNE   |
++-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(ID), CITY FROM CUSTOMER GROUP BY CITY WHERE COUNT(ID) > 1 ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE COUNT(ID) > 1' at line 1
+mysql> SELECT COUNT(ID), CITY FROM CUSTOMER GROUP BY CITY HAVING COUNT(ID) >1;
++-----------+--------+
+| COUNT(ID) | CITY   |
++-----------+--------+
+|         2 | MUMBAI |
+|         2 | VAPI   |
++-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(ID), CITY FROM CUSTOMER GROUP BY CITY HAVING COUNT(ID) > 1 ;
++-----------+--------+
+| COUNT(ID) | CITY   |
++-----------+--------+
+|         2 | MUMBAI |
+|         2 | VAPI   |
++-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(ID), CITY FROM CUSTOMER GROUP BY CITY HAVING COUNT(ID) > 2 ;
+Empty set (0.00 sec)
+
+mysql> CREATE TABLE EMPLOYEE (
+    -> ;;;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ERROR:
+No query specified
+
+ERROR:
+No query specified
+
+mysql> CREATE TABLE DEPARTMENT(
+    -> DEPT_ID INT PRIMARY KEY,
+    -> DEPT_NAME VARCHAR(30) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DESC DEPARTMENT;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPT_ID   | int         | NO   | PRI | NULL    |       |
+| DEPT_NAME | varchar(30) | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENT VALUES(1,'HR'),(2,'IT'),(3,'FINANCE'),(4,'MARKETING');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM DEPARTMENT;
++---------+-----------+
+| DEPT_ID | DEPT_NAME |
++---------+-----------+
+|       1 | HR        |
+|       2 | IT        |
+|       3 | FINANCE   |
+|       4 | MARKETING |
++---------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE EMPLOYEE(
+    -> EMP_ID INT PRIMARY KEY NOT NULL,
+    -> EMP_NAME VARCHAR(30) NOT NULL,
+    -> DEPT_ID INT, FOREIGN KEY(DEPT_ID) REFERENCES DEPARTMENT(DEPT_ID));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> DESC EMPLOYEE;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| EMP_ID   | int         | NO   | PRI | NULL    |       |
+| EMP_NAME | varchar(30) | NO   |     | NULL    |       |
+| DEPT_ID  | int         | YES  | MUL | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE
+    -> VALUES
+    -> (1,'ABHAY',1),
+    -> (2,'ROHAN',2),
+    -> (3,'SAM',1),
+    -> (4,'NILESH',NULL),
+    -> (5,'KISHAN',4);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM EMPLOYEE;
++--------+----------+---------+
+| EMP_ID | EMP_NAME | DEPT_ID |
++--------+----------+---------+
+|      1 | ABHAY    |       1 |
+|      2 | ROHAN    |       2 |
+|      3 | SAM      |       1 |
+|      4 | NILESH   |    NULL |
+|      5 | KISHAN   |       4 |
++--------+----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPARTMENT;
++---------+-----------+
+| DEPT_ID | DEPT_NAME |
++---------+-----------+
+|       1 | HR        |
+|       2 | IT        |
+|       3 | FINANCE   |
+|       4 | MARKETING |
++---------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT EMP_NAME, DEPT_NAME FROM EMPLOYEE INNER JOIN DEPARTMENT ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
++----------+-----------+
+| EMP_NAME | DEPT_NAME |
++----------+-----------+
+| ABHAY    | HR        |
+| SAM      | HR        |
+| ROHAN    | IT        |
+| KISHAN   | MARKETING |
++----------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT EMP_NAME, DEPT_NAME FROM EMPLOYEE LEFT JOIN DEPARTMENT ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
++----------+-----------+
+| EMP_NAME | DEPT_NAME |
++----------+-----------+
+| ABHAY    | HR        |
+| ROHAN    | IT        |
+| SAM      | HR        |
+| NILESH   | NULL      |
+| KISHAN   | MARKETING |
++----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT EMP_NAME, DEPT_NAME FROM DEPARTMENT LEFT JOIN EMPLOYEE ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
++----------+-----------+
+| EMP_NAME | DEPT_NAME |
++----------+-----------+
+| ABHAY    | HR        |
+| SAM      | HR        |
+| ROHAN    | IT        |
+| NULL     | FINANCE   |
+| KISHAN   | MARKETING |
++----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT EMP_NAME, DEPT_NAME FROM EMPLOYEE RIGHT JOIN DEPARTMENT ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
++----------+-----------+
+| EMP_NAME | DEPT_NAME |
++----------+-----------+
+| ABHAY    | HR        |
+| SAM      | HR        |
+| ROHAN    | IT        |
+| NULL     | FINANCE   |
+| KISHAN   | MARKETING |
++----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT *  FROM DEPARTMENT;
++---------+-----------+
+| DEPT_ID | DEPT_NAME |
++---------+-----------+
+|       1 | HR        |
+|       2 | IT        |
+|       3 | FINANCE   |
+|       4 | MARKETING |
++---------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++--------+----------+---------+
+| EMP_ID | EMP_NAME | DEPT_ID |
++--------+----------+---------+
+|      1 | ABHAY    |       1 |
+|      2 | ROHAN    |       2 |
+|      3 | SAM      |       1 |
+|      4 | NILESH   |    NULL |
+|      5 | KISHAN   |       4 |
++--------+----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT EMP_NAME, DEPT_NAME FROM EMPLOYEE RIGHT JOIN DEPARTMENT ON EMPLOYEE.DEPT_ID = DEPARTMENT.DEPT_ID;
++----------+-----------+
+| EMP_NAME | DEPT_NAME |
++----------+-----------+
+| ABHAY    | HR        |
+| SAM      | HR        |
+| ROHAN    | IT        |
+| NULL     | FINANCE   |
+| KISHAN   | MARKETING |
++----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT EMP_NAME, DEPT_NAME FROM EMPLOYEE FULL JOIN DEPARTMENT;
++----------+-----------+
+| EMP_NAME | DEPT_NAME |
++----------+-----------+
+| ABHAY    | MARKETING |
+| ABHAY    | FINANCE   |
+| ABHAY    | IT        |
+| ABHAY    | HR        |
+| ROHAN    | MARKETING |
+| ROHAN    | FINANCE   |
+| ROHAN    | IT        |
+| ROHAN    | HR        |
+| SAM      | MARKETING |
+| SAM      | FINANCE   |
+| SAM      | IT        |
+| SAM      | HR        |
+| NILESH   | MARKETING |
+| NILESH   | FINANCE   |
+| NILESH   | IT        |
+| NILESH   | HR        |
+| KISHAN   | MARKETING |
+| KISHAN   | FINANCE   |
+| KISHAN   | IT        |
+| KISHAN   | HR        |
++----------+-----------+
+20 rows in set, 1 warning (0.00 sec)
+
+mysql> SELECT EMP_NAME, DEPT_NAME FROM EMPLOYEE CROSS JOIN DEPARTMENT;
++----------+-----------+
+| EMP_NAME | DEPT_NAME |
++----------+-----------+
+| ABHAY    | MARKETING |
+| ABHAY    | FINANCE   |
+| ABHAY    | IT        |
+| ABHAY    | HR        |
+| ROHAN    | MARKETING |
+| ROHAN    | FINANCE   |
+| ROHAN    | IT        |
+| ROHAN    | HR        |
+| SAM      | MARKETING |
+| SAM      | FINANCE   |
+| SAM      | IT        |
+| SAM      | HR        |
+| NILESH   | MARKETING |
+| NILESH   | FINANCE   |
+| NILESH   | IT        |
+| NILESH   | HR        |
+| KISHAN   | MARKETING |
+| KISHAN   | FINANCE   |
+| KISHAN   | IT        |
+| KISHAN   | HR        |
++----------+-----------+
+20 rows in set (0.00 sec)
+
+m
